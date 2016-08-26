@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  {% include 'partials/head.twig' %}
+  <body class="{{ body_class }}">
+    <div id="page">
+      {% block page %}
+        {% include 'partials/header.twig' %}
+        <div id="content">
+          {% block content %}
+            
+          {% endblock %}{# end content #}
+        </div>
+      {% endblock %}{# end page #}
+    </div><!-- #page -->
+    {% include './components/hyper-grid.twig' %}
+
+    {% include 'partials/footer.twig' %}
+    {% include 'partials/foot.twig' %}
+  </body>
+</html>

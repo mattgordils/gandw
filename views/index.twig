@@ -1,0 +1,166 @@
+{% extends "base.twig" %}
+{% set body_class = 'home parallax' %}
+
+{% block content %}
+
+<a href="#intro" class="top-splash">
+	<div class="display-table">
+		<div class="table-cell">
+			<div class="container">
+				<h1>Hyperlink</h1>
+				<h2>Design & Dev.</h2>
+			</div>
+		</div>
+	</div>
+</a>
+
+<div id="intro" class="section">
+	<div class="container">
+		<div class="row">
+			<div class="col-2 right logo">
+				<div class="fixed-logo">
+					<a href="#intro">
+						{% include './components/logo.svg' %}
+					</a>
+				</div>
+			</div>
+			<div class="col-12">
+				<div class="lg intro-p">
+					<p><span class="logo-type">Hyperlink</span> is a New York City based design and development team focusing on clean and responsive design, innovative solutions, and intuitive user experiences.</p>
+					<p><a href="mailto:info@hyperlinknyc.com">Info@hyperlinknyc.com</a></p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div id="work-images" class="section">
+	<div class="container">
+		<div class="inline-grid">
+			<div class="col-12">
+				<img src="assets/images/work/wip-13.png">
+			</div>
+			<div class="col-6">
+				<img src="assets/images/work/wip-6.png">
+			</div>
+			<div class="col-6">
+				<img src="assets/images/work/wip-4.png">
+			</div>
+			<div class="col-6">
+				<img src="assets/images/work/wip-2.gif">
+			</div>
+			<div class="col-6">
+				<img src="assets/images/work/rv-2.gif">
+			</div>
+			<div class="col-12">
+				<img src="assets/images/work/vb.gif">
+			</div>
+			<div class="col-6">
+				<img src="assets/images/work/dropsplash.gif">
+			</div>
+			<div class="col-6">
+				<img src="assets/images/work/foragers.gif">
+			</div>
+			<div class="col-12">
+				<img src="assets/images/work/ikb-lg.gif">
+			</div>
+			<div class="col-12">
+				<img src="assets/images/work/honor-tilt.jpg">
+			</div>
+			<div class="col-12">
+				<img src="assets/images/work/full.gif">
+			</div>
+		</div>
+	</div>
+</div>
+
+<div id="services" class="section">
+	<div class="container">
+		<div class="inline-grid">
+			<div class="col-6">
+				<h3 class="section-title">Services</h3>
+			</div>
+			<div class="col-6">
+				<ul class="inline-grid no-break">
+					<li class="col-6">Web Design</li>
+					<li class="col-6">Development</li>
+					<li class="col-6">Visual Identity</li>
+					<li class="col-6">User Experience</li>
+					<li class="col-6">Ecommerce</li>
+					<li class="col-6">Interface Design</li>
+					<li class="col-6">Digital Design</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div id="about" class="section grey">
+	<div class="container">
+		{# <hr class="push-bottom"> #}
+		<div class="inline-grid">
+			<div class="col-6 left">
+				<h3 class="section-title">About</h3>
+			</div>
+			<div class="col-6">
+				<div class="inner-section bio">
+					<div class="lg">
+						<p>Hyperlink is made up of designer, Matthew Gordils, and developer, Steve fuentes. We work closely with our clients to find this and that.</p>
+					</div>
+				</div>
+				<div class="inner-section bio">
+					<p>Matthew Gordils, <i>Designer</i></p>
+					<p>After completing a BFA in Graphic and Interactive Design at Tyler School of Art he moved to New York to work with NoFavorite, a web design studio in SoHo. He has worked with fashion brands such as Lulu Frost, Honor, Franziska Fox, and artists like Manolo Valdés and the Bruce High Quality Foundation.</p>
+					<p><a href="mailto:matt@hyperlinknyc.com">matt@hyperlinknyc.com</a></p>
+				</div>
+				<div class="inner-section bio">
+					<p>Steve Fuentes, <i>Developer</i></p>
+					<p>Steve Fuentes is a full stack developer who has been working with clients to build beautiful interactive sites that are easy and fun to maintain. After attending SVA for illustration Steve went to build experiences at a small web design studio. He has worked with numerous fashion clients to help their businesses grow and be on the cutting edge of the web.</p>
+					<p><a href="mailto:matt@hyperlinknyc.com">steve@hyperlinknyc.com</a></p>
+				</div>
+				<div class="inner-section bio">
+					<p>Steve and Matt have been working together for 2013 and have developed a streamlined system to integrate design and development seamlessly, making flat designs become immersive experiences.</p>
+				</div>
+
+			</div>
+		</div>
+	</div>
+</div>
+
+<div id="contact" class="section">
+	<div class="container">
+		{# <hr class="push-bottom"> #}
+		<div class="inline-grid">
+			<div class="col-6">
+				<h3 class="section-title">Contact</h3>
+			</div>
+			<div class="col-6">
+				<div class="inner-section">
+					<div class="lg">
+						<p>If you are interested in working with us and would like to know more, please get in touch.</p>
+					</div>
+				</div>
+				<div class="inner-section">
+					<p>
+						General Inquiries<br>
+						<a href="#">info@hyperlinknyc.com</a>
+					</p>
+				</div>
+				<div class="inner-section">
+					<p>
+						Matthew Gordils<br>
+						<a href="#">matt@hyperlinknyc.com</a>
+					</p>
+				</div>
+				<div class="inner-section">
+					<p>
+						Steve Fuentes<br>
+						<a href="#">steve@hyperlinknyc.com</a>
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+{% endblock %}{# end content #}

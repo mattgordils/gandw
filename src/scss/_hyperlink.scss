@@ -1,0 +1,186 @@
+// Hyperlink Site Specific Styles
+
+body {
+	font-size: 14px;
+	@include respond($md) {
+		font-size: 16px;
+	}
+	@include respond($max-site-width) {
+		font-size: 18px;
+	}
+	@include respond($huge) {
+		font-size: 20px;
+	}
+}
+
+#pageLoader {
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	z-index: 10;
+	background: darken($primary-color, 12%);
+	visibility: visible;
+	opacity: 1;
+	@include animation(fadeOut 1s 2s ease forwards);
+	.loader {
+		width: 100px;
+		height: 100px;
+		svg {
+			width: 100px;
+			height: 100px;
+			* {
+				fill: $bg-color;
+			}
+		}
+	}
+}
+
+#content {
+	padding-bottom: (100% - $site-width)/2;
+}
+
+p {
+	margin-bottom: 1em;
+	a {
+		padding-bottom: 3px;
+		border-bottom: 1px solid $hr-color;
+	}
+}
+
+i {
+	font-style: italic;
+}
+
+.top-splash {
+	display: block;
+	height: 100vw;
+	background-color: $primary-color;
+	background-image: url('../images/hyper-bg.jpg');
+	background-size: cover;
+	@include font-smooth();
+	color: #fff;
+	position: relative;
+	z-index: 2;
+	&:hover {
+		color: #fff;
+		border: none;
+		cursor: url('../images/down-arrow.svg'), auto;
+	}
+	h1, h2 {
+		font-size: 12vw;
+		letter-spacing: -.03em;
+		line-height: 1em;
+		margin: 0;
+	}
+	h1 {
+		font-weight: 700;
+		font-style: italic;
+		&:after {
+			content: ' ';
+		}
+	}
+	h2 {
+		display: none;
+		font-weight: 100;
+	}
+	@include respond($lg) {
+		height: 100vh;
+		h1, h2 {
+			font-size: 5.5vw;
+			display: inline;
+		}
+	}
+}
+
+.lg p,
+p.lg {
+	font-size: 1.25em;
+	@include font-smooth();
+	@include respond($lg) {
+		font-size: 1.5em;
+	}
+}
+
+.section {
+	padding-top: (100% - $site-width) / 1.85;
+	&.grey {
+		background: #f4f4f4;
+		padding-bottom: (100% - $site-width) / 1.85;
+		margin-top: (100% - $site-width) / 1.85;
+	}
+	.section-title {
+		font-size: 1em;
+		color: $primary-color;
+		margin-bottom: 1em;
+	}
+}
+
+hr {
+	margin: 1.5em 0;
+	&.push-bottom {
+		margin-top: 0;
+	}
+}
+
+#intro {
+	.right {
+		text-align: right;
+	}
+	.logo {
+		display: none;
+		@include respond($lg) {
+			// display: inline-block;
+		}
+		svg {
+			height: 34px;
+			* {
+				fill: $primary-color;
+			}
+		}
+	}
+	.intro-p {
+		margin-top: -.3em;
+		p {
+			max-width: 31.5em;
+			&:last-of-type {
+				margin-bottom: 0;
+			}
+			.logo-type {
+				font-weight: 700;
+				font-style: italic;
+				letter-spacing: -.02em;
+			}
+		}
+	}
+}
+
+#work-images {
+	.inline-grid {
+		margin-bottom: -$gutter;
+	}
+	[class^="col-"] {
+		padding-bottom: $gutter;
+	}
+}
+
+.inner-section {
+	margin-top: (100% - $site-width)/1.5;
+	&:first-of-type {
+		margin-top: 0;
+	}
+	p {
+		&:last-of-type {
+			margin-bottom: 0;
+		}
+	}
+}
+
+#services {
+
+}
+
+#about {
+
+}

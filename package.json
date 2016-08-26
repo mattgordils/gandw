@@ -1,0 +1,41 @@
+{
+  "name": "hypersite",
+  "version": "1.0.0",
+  "description": "Hypersite",
+  "repository": {
+    "type": "git",
+    "url": "test"
+  },
+  "author": "Hyperlink | Steve",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-notify": "^2.2.0",
+    "gulp-sass": "^2.0.4",
+    "gulp-sourcemaps": "^1.5.2",
+    "yargs": "^4",
+    "gulp-util": "^3",
+    "gulp-concat": "^2",
+    "gulp-uglify": "^1.2.0",
+    "vinyl-source-stream": "^1",
+    "vinyl-buffer": "^1", 
+    "browserify": "^13",
+    "browserify-shim": "latest",
+   
+    "jquery": "^2.1.4"
+  },
+  "browser": {
+    "waypoints": "./node_modules/waypoints/lib/noframework.waypoints.js"
+  },
+  "browserify": {
+      "transform": [
+        "browserify-shim"
+      ]
+  },
+  "browserify-shim": {
+      "waypoints": {
+        "exports": "waypoints"
+      }
+
+  }
+}

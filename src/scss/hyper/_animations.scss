@@ -1,0 +1,43 @@
+// Animations that come built into Hypersite
+
+@include keyframes(ripple) {
+  0%   { @include opacity(.75); @include transform(scale(0)); }
+  100% { @include opacity(0); @include transform(scale(1)); }
+}
+
+@include keyframes(fadeInUp) {
+  0%   { @include opacity(0); @include transform(translate3d(0, 35px, 0)); }
+  100% { @include opacity(1); @include transform(translate3d(0, 0, 0)); }
+}
+
+@include keyframes(rotate) {
+  0%   { @include transform(rotate(0deg)); }
+  100% { @include transform(rotate(360deg)); }
+}
+
+@include keyframes(fadeIn) {
+  0%   { opacity: 0; visibility: hidden; }
+  100% { opacity: 1; visibility: visible; }
+}
+
+@include keyframes(fadeOut) {
+  0% { opacity: 1; visibility: visible; }
+  100%   { opacity: 0; visibility: hidden; }
+}
+
+// Continuous rotation
+$spinner-size : 80px;
+$spinner-speed : .5s;
+
+.spinner {
+  display: block;
+  width: $spinner-size;
+  height: $spinner-size;
+  border: 1px solid $light-text-color;
+  border-top-color: $primary-color;
+  border-bottom-color: $light-text-color;
+  border-left-color: $primary-color;
+  border-right-color: $light-text-color;
+  border-radius: 100%;
+  @include animation(rotate $spinner-speed linear infinite);
+}

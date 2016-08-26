@@ -1,0 +1,551 @@
+{% extends "base.twig" %}
+{% set body_class = 'styles' %}
+
+{% block content %}
+
+<div class="section">
+	<div class="container">
+		<div class="row">
+			<div class="col-8 right">
+				<hr>
+				<h1 id="pagetitle"></h1>
+				<script>
+				  document.getElementById('pagetitle').innerHTML = document.title;
+				</script>
+				<div class="lg">
+				<p>Hypersite is the base stlye built with <a href="http://sass-lang.com/" target="_blank">SASS</a> and JQuery. Included is the functionality for our fake Ajax (Fajax) page transitions and any other things we feel should be a part of any site we put out there.</p>
+				<p>Most of the tweeks and color options are easily editable in the <code>_variables.scss</code> file.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="hyper-splash-area">
+	<div class="display-table">
+		<div class="table-cell">
+			<div class="container narrow">
+				<p class="lg">
+					This area consists of 4 <code>div</code>. the first is <code>div.full-window height</code>. This will make the div the height of the window. The second is <code>div.vertical-center</code>. This wraps 2 more divs, <code>div.table</code> and <code>div.table-cell</code>. Anything in this div wil be vertically centered.
+				</p>
+			</div>
+		</div>
+	</div>
+</div>
+	
+
+<div id="grid" class="section">
+	<div class="container">
+		<hr>
+		<div class="row">
+			<div class="col-4">
+				<h4>Floating Grid</h4>
+			</div>
+			<div class="col-8">
+				<p class="lg">This is a grid using the <code>.row</code> class. It uses floats and is very stable. You can also do tricks like shuffle the content. Check out the <b><a href="#catExample">Cat Example</a></b>.</p>
+			</div>
+		</div>
+
+		<ul class="row">
+			{% for item in 1..2 %}
+			  <li class="col-6">
+					<img src="assets/images/hypersite-images/offline-placeholder.png" />
+					<p><code>.col-6</code></p>
+				</li>
+			{% endfor %}
+		</ul>
+		<div class="row">
+			{% for item in 1..3 %}
+			  <div class="col-4">
+					<img src="assets/images/hypersite-images/offline-placeholder.png" />
+					<p><code>.col-4</code></p>
+				</div>
+			{% endfor %}
+		</div>
+		<ul class="row">
+			{% for item in 1..4 %}
+			  <li class="col-3">
+					<img src="assets/images/hypersite-images/offline-placeholder.png" />
+					<p><code>.col-3</code></p>
+				</li>
+			{% endfor %}
+		</ul>
+		<div class="row">
+			{% for item in 1..6 %}
+			  <div class="col-2">
+					<img src="assets/images/hypersite-images/offline-placeholder.png" />
+					<p><code>.col-2</code></p>
+				</div>
+			{% endfor %}
+		</div>
+	</div>
+</div><!-- End #grid -->
+
+<div id="nested-columns" class="section">
+	<div class="container">
+		<hr>
+		<div class="row">
+			<div class="col-4">
+				<h4>Nested Columns</h4>
+				<p>Put a <code>.row</code> inside another <code>.row</code> and specify the number of columns you want. The nested columns shown below only go one level deep. If you go any deeper, you will need to figure it out on you're own.</p>
+			</div>
+			<div class="col-8 right">
+				<img src="assets/images/hypersite-images/offline-placeholder.png" />
+				<div class="row">
+					<div class="col-4-8">
+						<img src="assets/images/hypersite-images/offline-placeholder.png" />
+					</div>
+					<div class="col-4-8">
+						<img src="assets/images/hypersite-images/offline-placeholder.png" />
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-3-8">
+						<img src="assets/images/hypersite-images/offline-placeholder.png" />
+					</div>
+					<div class="col-2-8">
+						<img src="assets/images/hypersite-images/offline-placeholder.png" />
+					</div>
+					<div class="col-3-8">
+						<img src="assets/images/hypersite-images/offline-placeholder.png" />
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div><!-- End #nested-columns -->
+
+	<div id="catExample" class="section">
+		<div class="container">
+			<div class="row">
+				<div class="col-8 right">
+					<h4>The Cat Example</h4>
+					<p>For Shuffling Content</p>
+				</div>
+				<div class="col-4 left">
+					<img src="assets/images/hypersite-images/offline-placeholder.png" />
+				</div>
+				<div class="col-8 right">
+					<h6>This description will tuck below the image of the cat.</h6>
+					<p>This trick can be done by adding a class of <code>right</code> to the elements that you would like to be on the right. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Est tamen ea secundum naturam multoque nos ad se expetendam magis hortatur quam superiora omnia. Sed tamen omne, quod de re bona dilucide dicitur.</p>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- End #catExample -->
+
+	<div class="section">
+		<div class="container">
+			<h4>Breaking Grid is for Badasses</h4>
+			<ul class="inline-grid">
+				{% for item in 1..5 %}
+					<li class="col-1-5">
+						<img src="assets/images/hypersite-images/offline-placeholder.png" />
+						<p class="sm"><code>.col-1-5</code> (Fifths)</p>
+					</li>
+				{% endfor %}
+
+				{% for item in 1..8 %}
+					<li class="col-1-8">
+						<img src="assets/images/hypersite-images/offline-placeholder.png" />
+						<p class="sm"><code>.col-1-8</code> (Eights)</p>
+					</li>
+				{% endfor %}
+			</ul>
+		</div>
+	</div>
+
+	<div class="section">
+		<div class="container">
+			<hr>
+			<div class="row">
+				<div class="col-4">
+					<h4>Inline-block Grids Are Awesome</h4>
+				</div>
+				<div class="col-8">
+					<p>By adding a class of <code>.inline-grid</code> you can place items next to each other while having more flexibility over the <code>.col</code> placement.<code>vertical-align: top</code> is the default, you can also add classes <code>.middle</code> and <code>.bottom</code> to effect vertical alignement and <code>.right</code> and <code>.center</code> to effect horizontal aligment.</p>
+				</div>
+			</div>
+			<ul class="inline-grid center">
+				{% for item in 1..8 %}
+					<li class="col-4"><img src="assets/images/hypersite-images/offline-placeholder.png" /></li>
+				{% endfor %}
+			</ul>
+		</div>
+	</div>
+
+	<div class="section">
+		<div class="container">
+			<div class="row">
+				<div class="col seven">
+					<h3>Alternativley...</h3>
+					<p>You may class each of the direct child <code>div</code> or <code>li</code> with the width you would like. (ie: <code>.col-8</code>)</p>
+				</div>
+			</div>
+			<div class="inline-grid middle">
+				<div class="col-12">
+					<img src="assets/images/hypersite-images/offline-placeholder.png" />
+					<code>.col-12</code>
+				</div>
+		    <div class="col-9">
+		    	<img src="assets/images/hypersite-images/offline-placeholder.png" />
+					<code>.col-9</code>
+		    </div>
+		    <div class="col-3">
+		    	<img src="assets/images/hypersite-images/offline-placeholder.png" />
+					<code>.col-3</code>
+		    </div>
+		    <div class="col-4">
+		    	<img src="assets/images/hypersite-images/offline-placeholder.png" />
+					<code>.col-4</code>
+		    </div>
+		    <div class="col-8">
+		    	<img src="assets/images/hypersite-images/offline-placeholder.png" />
+					<code>.col-8</code>
+		    </div>
+		    <div class="col-3">
+		    	<img src="assets/images/hypersite-images/offline-placeholder.png" />
+					<code>.col-3</code>
+		    </div>
+		    <div class="col-6">
+		    	<img src="assets/images/hypersite-images/offline-placeholder.png" />
+					<code>.col-6</code>
+		    </div>
+		    <div class="col-2">
+		    	<img src="assets/images/hypersite-images/offline-placeholder.png" />
+					<code>.col-2</code>
+		    </div>
+		    <div class="col-1">
+		    	<img src="assets/images/hypersite-images/offline-placeholder.png" />
+					<code>.col-1</code>
+		    </div>
+			</div>
+		</div>
+	</div>
+
+	<section id="accordion">
+		<div class="container">
+			{% include './components/accordian.twig' %}
+		</div>
+	</section>
+
+	<div id="typography" class="section">
+		<div class="container">
+			<hr>
+			<div class="row">
+				<div class="col-4">
+					<h3>Typography</h3>
+				</div>
+				<div class="col-8">
+					<h4>Headers</h4>
+					<p>While <code>h1</code> to <code>h6</code> are styled, the style's of headers can be applied to another element. For example, adding a class of <code>h2</code> to a <code>p</code> will make the <code>p</code> act as an <code>h2</code></p>
+					
+					<h1>Header No. 1</h1>
+					<h2>Header No. 2</h2>
+					<h3>Header No. 3</h3>
+					<h4>Header No. 4</h4>
+					<h5>Header No. 5</h5>
+					<h6>Header No. 6</h6>
+					<p class="h1">Paragraph.h1</p>
+					<p class="h2">Paragraph.h2</p>
+					<p class="h3">Paragraph.h3</p>
+					<p class="h4">Paragraph.h4</p>
+					<p class="h5">Paragraph.h5</p>
+					<p class="h6">Paragraph.h6</p>
+					
+					<h6>Opener Paragraph <code>p.lg</code></h6>
+					<p class="lg">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Est tamen ea secundum naturam multoque nos ad se expetendam magis hortatur quam superiora omnia. Sed tamen omne, quod de re bona dilucide dicitur, mihi praeclare dici videtur. Quamquam haec quidem praeposita recte et reiecta dicere licebit. At enim, qua in vita est aliquid mali, ea beata esse non potest. Quid autem habent admirationis, cum prope accesseris? Duo Reges: constructio interrete. </p>
+					<h6>Wrap the First Letter in <code>span.dropcap</code></h6>
+					<p><span class="dropcap">O</span>There are a few cool things here. Adding a class of <code>.dropcap</code> to first letter of a <code>p</code> or adding a class of <code>.dropcap</code> to a <code>p</code> creates a dropcap. <span class="light">Tamen omne, quod de re bona dilucide dicitur, mihi praeclare dici videtur. Quamquam haec quidem praeposita recte et reiecta dicere licebit. At enim, qua in vita est aliquid mali, ea beata esse non potest. Quid autem habent admirationis, cum prope accesseris? Duo Reges: constructio interrete.</span></p>
+					<h6>Or the CSS3 Style...<code>p.dropcap</code></h6>
+					<p id="test" class="dropcap lead-in">Torem ipsum dolor sit amet, consectetur adipiscing elit. Est tamen ea secundum naturam multoque nos ad se expetendam magis hortatur quam superiora omnia. Sed tamen omne, quod de re bona dilucide dicitur, mihi praeclare dici videtur. Quamquam haec quidem praeposita recte et reiecta dicere licebit. At enim, qua in vita est aliquid mali, ea beata esse non potest. Quid autem habent admirationis, cum prope accesseris? Duo Reges: constructio interrete. </p>
+					<h6>To for a fancier dropcap you have to wrap the first letter in <code>span.dropcap.box</code></h6>
+					<p><span class="dropcap box">F</span>rem ipsum dolor sit amet, consectetur adipiscing elit. Est tamen ea secundum naturam multoque nos ad se expetendam magis hortatur quam superiora omnia. Sed tamen omne, quod de re bona dilucide dicitur, mihi praeclare dici videtur. Quamquam haec quidem praeposita recte et reiecta dicere licebit. At enim, qua in vita est aliquid mali, ea beata esse non potest. Quid autem habent admirationis, cum prope accesseris? Duo Reges: constructio interrete.</p>
+					<h6>Large Paragraph <code>p.lg</code></h6>
+					<p class="lg">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Est tamen ea secundum naturam multoque nos ad se expetendam magis hortatur quam superiora omnia. Sed tamen omne, quod de re bona dilucide dicitur, mihi praeclare dici videtur. Quamquam haec quidem praeposita recte et reiecta dicere licebit. At enim, qua in vita est aliquid mali, ea beata esse non potest. Quid autem habent admirationis, cum prope accesseris? Duo Reges: constructio interrete. </p>
+					<h6>Normal Paragraph <code>p</code></h6>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Est tamen ea secundum naturam multoque nos ad se expetendam magis hortatur quam superiora omnia. Sed tamen omne, quod de re bona dilucide dicitur, mihi praeclare dici videtur. Quamquam haec quidem praeposita recte et reiecta dicere licebit. At enim, qua in vita est aliquid mali, ea beata esse non potest. Quid autem habent admirationis, cum prope accesseris? Duo Reges: constructio interrete. </p>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Est tamen ea secundum naturam multoque nos ad se expetendam magis hortatur quam superiora omnia. Sed tamen omne, quod de re bona dilucide dicitur, mihi praeclare dici videtur. Quamquam haec quidem praeposita recte et reiecta dicere licebit. At enim, qua in vita est aliquid mali, ea beata esse non potest. Quid autem habent admirationis, cum prope accesseris? Duo Reges: constructio interrete. </p>
+					<h6>Small Paragraph <code>.sm p</code> or <code>p.sm</code></h6>
+					<div class="sm">
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Est tamen ea secundum naturam multoque nos ad se expetendam magis hortatur quam superiora omnia. Sed tamen omne, quod de re bona dilucide dicitur, mihi praeclare dici videtur. Quamquam haec quidem praeposita recte et reiecta dicere licebit. At enim, qua in vita est aliquid mali, ea beata esse non potest. Quid autem habent admirationis, cum prope accesseris? Duo Reges: constructio interrete. </p>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Est tamen ea secundum naturam multoque nos ad se expetendam magis hortatur quam superiora omnia. Sed tamen omne, quod de re bona dilucide dicitur, mihi praeclare dici videtur. Quamquam haec quidem praeposita recte et reiecta dicere licebit. At enim, qua in vita est aliquid mali, ea beata esse non potest. Quid autem habent admirationis, cum prope accesseris? Duo Reges: constructio interrete. </p>
+					</div>
+					
+					<div class="rich-text">
+						<h3>Randomly Generated Text</h3>
+						<p class="lg"> This is a Dump of Randomly Generated Text with Different Types of Markup in it. Add a class of <code>.rich-text</code> to the container to insure fine typography.</p>
+						<p>Lorem ipsum dolor sit amet, <b>consectetur</b> adipiscing elit. Hoc ipsum elegantius poni meliusque potuit. <code>Vestri haec verecundius, illi fortasse constantius.</code> Sedulo, inquam, faciam. Satisne ergo pudori consulat, si quis sine teste libidini pareat? Quae quidem sapientes sequuntur duce natura tamquam videntes; <a href='http://loripsum.net/' target='_blank'>Illud non continuo, ut aeque incontentae.</a> Duo Reges: constructio interrete. </p>
+						<p>Quid ait Aristoteles reliquique Platonis alumni? Inde sermone vario sex illa a Dipylo stadia confecimus. Causa autem fuit huc veniendi ut quosdam hinc libros promerem. Quis, quaeso, illum negat et bonum virum et comem et humanum fuisse? Atqui pugnantibus et contrariis studiis consiliisque semper utens nihil quieti videre, nihil tranquilli potest. Sed ad bona praeterita redeamus. Quid est, quod ab ea absolvi et perfici debeat? </p>
+						<ol>
+							<li>Qua ex cognitione facilior facta est investigatio rerum occultissimarum.</li>
+							<li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Est tamen ea secundum naturam multoque nos ad se expetendam magis hortatur quam superiora omnia. Sed tamen omne, quod de re bona dilucide dicitur, mihi praeclare dici videtur. Quamquam haec quidem praeposita recte et reiecta dicere licebit. At enim, qua in vita est aliquid mali, ea beata esse non potest. Quid autem habent admirationis, cum prope accesseris? Duo Reges: constructio interrete.</li>
+							<li>Quae similitudo in genere etiam humano apparet.</li>
+						</ol>
+						<p>Quid enim est a Chrysippo praetermissum in Stoicis? Cur tantas regiones barbarorum pedibus obiit, tot maria transmisit? <i>Ita multa dicunt, quae vix intellegam.</i> </p>
+						<blockquote cite='http://loripsum.net'>Quis est enim aut quotus quisque, cui, mora cum adpropinquet, non refugiat timido sanguen átque exalbescát metu?</blockquote>
+						<p>Verum hoc idem saepe faciamus. <strong>Vitae autem degendae</strong> ratio maxime quidem illis placuit quieta. <i>Quae sequuntur igitur?</i> Deinde prima illa, quae in congressu solemus: Quid tu, inquit, huc? </p>
+						<h4>Lorem ipsum dolor sit</h4>
+						<p>Nam ante Aristippus, et ille melius. <i>Restatis igitur vos;</i> Multoque hoc melius nos veriusque quam Stoici. Sin aliud quid voles, postea. Ego vero volo in virtute vim esse quam maximam; <code>Graece donan, Latine voluptatem vocant.</code> Immo videri fortasse. Itaque haec cum illis est dissensio, cum Peripateticis nulla sane. Beatus sibi videtur esse moriens. Solum praeterea formosum, solum liberum, solum civem, stultost; Teneo, inquit, finem illi videri nihil dolere. Hos contra singulos dici est melius. </p>
+						<p>Nam ante Aristippus, et ille melius. <i>Restatis igitur vos;</i> Multoque hoc melius nos veriusque quam Stoici. Sin aliud quid voles, postea. Ego vero volo in virtute vim esse quam maximam; <code>Graece donan, Latine voluptatem vocant.</code> Immo videri fortasse. Itaque haec cum illis est dissensio, cum Peripateticis nulla sane. Beatus sibi videtur esse moriens. Solum praeterea formosum, solum liberum, solum civem, stultost; Teneo, inquit, finem illi videri nihil dolere. Hos contra singulos dici est melius. </p>
+						<dl>
+							<dt><dfn>Quae sequuntur igitur?</dfn></dt>
+							<dd>Quid enim?</dd>
+							<dt><dfn>Nulla erit controversia.</dfn></dt>
+							<dd>Atque adhuc ea dixi, causa cur Zenoni non fuisset, quam ob rem a superiorum auctoritate discederet.</dd>
+						</dl>
+						<h5>Lorem ipsum dolor sit</h5>
+						<p>Nam ante Aristippus, et ille melius. <i>Restatis igitur vos;</i> Multoque hoc melius nos veriusque quam Stoici. Sin aliud quid voles, postea. Ego vero volo in virtute vim esse quam maximam; <code>Graece donan, Latine voluptatem vocant.</code> Immo videri fortasse. Itaque haec cum illis est dissensio, cum Peripateticis nulla sane. Beatus sibi videtur esse moriens. Solum praeterea formosum, solum liberum, solum civem, stultost; Teneo, inquit, finem illi videri nihil dolere. Hos contra singulos dici est melius. </p>
+						<ul>
+							<li>Duo enim genera quae erant, fecit tria.</li>
+							<li>Pungunt quasi aculeis interrogatiunculis angustis, quibus etiam qui assentiuntur nihil commutantur animo et idem abeunt, qui venerant.</li>
+						</ul>
+						<pre>
+						Non modo carum sibi quemque, verum etiam vehementer carum
+						esse?
+
+						Huic mori optimum esse propter desperationem sapientiae,
+						illi propter spem vivere.
+						</pre>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div><!-- End #typography -->
+
+	{#{% include './components/slideshow.twig' %}#}
+
+	<div id="forms" class="section">
+		<div class="container">
+			<hr>
+			<div class="row">
+				<div class="col-4">
+					<h3>Forms</h3>
+				</div>
+				<div class="col-8">
+					<form>
+						<div class="inline-grid">
+							<div class="col-4-8">
+								<label>Label</label>
+								<input type="text" placeholder="Text" />
+							</div>
+							<div class="col-4-8">
+								<label>Label</label>
+								<input type="email" placeholder="Email" />
+							</div>
+							<div class="col-4-8">
+								<label>Label</label>
+								<input type="password" placeholder="Password" />
+							</div>
+							<div class="col-4-8">
+								<label>Label</label>
+								<input type="search" placeholder="Search" />
+							</div>
+							<div class="col-8-8">
+								<label>Label</label>
+								<textarea placeholder="Textarea"></textarea>
+							</div>
+							<div class="col-4-8">
+								<label>Label</label>
+								<select>
+								  <option value="op1">Option 1</option>
+								  <option value="op2">Option 2</option>
+								  <option value="op3">Option 3</option>
+								  <option value="op4">Option 4</option>
+								</select>
+							</div>
+							<div class="col-4-8">
+								<input type="checkbox" id="checkbox" />
+								<label for="checkbox"><span class="checkbox"></span>Checkbox</label>
+								
+								<input type="radio" id="radio" name="radio" />
+								<label for="radio"><span class="radio"></span>Radio</label>
+
+								<input type="radio" id="radio2" name="radio" />
+								<label for="radio2"><span class="radio"></span>Radio 2</label>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+			</div>
+	</div>
+	<!-- End #forms -->
+
+	<div id="buttons" class="section">
+		<div class="container">
+			<hr>
+			<div class="row">
+				<div class="col-4">
+					<h3>Buttons</h3>
+				</div>
+				<div class="col-8">
+					<p>To ensure consistancy in the IU, buttons, links intended to be buttons, and submits should act the same.</p>
+				</div>
+			</div>
+			<ul class="inline-grid hyper">
+				<li class="col-4">
+					<div>
+						<button class="loading">
+							Button
+						</button>
+					</div>
+					<p class="sm"><code>button.loading</code></p>
+				</li>
+				<li class="col-4">
+					<div>
+						<button class="success">
+							Button
+						</button>
+					</div>
+					<p class="sm"><code>button.success</code></p>
+				</li>
+				<li class="col-4">
+					<div>
+						<button class="error">
+							Button
+						</button>
+					</div>
+					<p class="sm"><code>button.error</code></p>
+				</li>
+				<li class="col-4">
+					<div>
+						<button>
+							Button
+						</button>
+					</div>
+					<p class="sm"><code>button</code></p>
+				</li>
+				<li class="col-4">
+					<div>
+						<input type="submit" value="Submit" />
+					</div>
+					<p class="sm"><code>input[type=submit]</code></p>
+				</li>
+				<li class="col-4">
+					<div>
+						<a class="btn" href="#"><span class="icon"><?php include 'assets/images/icons/facebook.svg'; ?></span>a.btn</a>
+					</div>
+					<p class="sm"><code>a.btn</code></p>
+				</li>
+				<li class="col-4">
+					<div>
+						<button class="secondary">Button</button>
+					</div>
+					<p class="sm"><code>button.secondary</code></p>
+				</li>
+				<li class="col-4">
+					<div>
+						<input class="secondary" type="submit" value="Submit" />
+					</div>
+					<p class="sm"><code>input[type=submit].secondary</code></p>
+				</li>
+				<li class="col-4">
+					<div>
+						<a class="btn secondary" href="#"><span class="icon"><?php include 'assets/images/icons/facebook.svg'; ?></span>a.btn</a>
+					</div>
+					<p class="sm"><code>a.btn.secondary</code></p>
+				</li>
+				<li class="col-4">
+					<div>
+						<button class="medium">Button</button>
+					</div>
+					<p class="sm"><code>button.medium</code></p>
+				</li>
+				<li class="col-4">
+					<div>
+						<input class="medium" type="submit" value="Submit" />
+					</div>
+					<p class="sm"><code>input[type=submit].medium</code></p>
+				</li>
+				<li class="col-4">
+					<div>
+						<a class="btn medium" href="#"><span class="icon"><?php include 'assets/images/icons/facebook.svg'; ?></span>a.btn</a>
+					</div>
+					<p class="sm"><code>a.btn.medium</code></p>
+				</li>
+				<li class="col-4">
+					<div>
+						<button class="secondary medium">Button</button>
+					</div>
+					<p class="sm"><code>button.secondary.medium</code></p>
+				</li>
+				<li class="col-4">
+					<div>
+						<input class="secondary medium" type="submit" value="Submit" />
+					</div>
+					<p class="sm"><code>input[type=submit].secondary.medium</code></p>
+				</li>
+				<li class="col-4">
+					<div>
+						<a class="btn secondary medium" href="#"><span class="icon"><?php include 'assets/images/icons/facebook.svg'; ?></span>a.btn</a>
+					</div>
+					<p class="sm"><code>a.btn.secondary.medium</code></p>
+				</li>
+
+				<li class="col-4">
+					<div>
+						<button class="tiny">Button</button>
+					</div>
+					<p class="sm"><code>button.tiny</code></p>
+				</li>
+				<li class="col-4">
+					<div>
+						<input class="tiny" type="submit" value="Submit" />
+					</div>
+					<p class="sm"><code>input[type=submit].tiny</code></p>
+				</li>
+				<li class="col-4">
+					<div>
+						<a class="btn tiny" href="#"><span class="icon"><?php include 'assets/images/icons/facebook.svg'; ?></span>a.btn</a>
+					</div>
+					<p class="sm"><code>a.btn.tiny</code></p>
+				</li>
+				<li class="col-4">
+					<div>
+						<button class="secondary tiny">Button</button>
+					</div>
+					<p class="sm"><code>button.secondary.tiny</code></p>
+				</li>
+				<li class="col-4">
+					<div>
+						<input class="secondary tiny" type="submit" value="Submit" />
+					</div>
+					<p class="sm"><code>input[type=submit].secondary.tiny</code></p>
+				</li>
+				<li class="col-4">
+					<div>
+						<a class="btn secondary tiny" href="#"><span class="icon"><?php include 'assets/images/icons/facebook.svg'; ?></span>a.btn</a>
+					</div>
+					<p class="sm"><code>a.btn.secondary.tiny</code></p>
+				</li>
+			</ul>
+			</div>
+	</div>
+	<!-- End #buttons -->
+
+	<div id="details" class="section">
+		<div class="container">
+			<hr>
+			<div class="row">
+				<div class="col-4">
+					<h3>Details</h3>
+					<p>Be sure replace the favicon and touch icon images. Always ask for and test the Google Analytics info <strong>before</strong> launch.</p>
+				</div>
+				<div class="col-8 right">
+					<ul class="row hyper">
+						<div class="col-4-8">
+							<div class="favicon"><img src="./assets/images/favicon.png"></div>
+							<p>Le Favicon</p>
+						</div>
+						<div class="col-4-8">
+							<div class="touch-icon"><img src="./assets/images/apple-touch-icon-precomposed.png"></div>
+							<p>Le Homescreen Icon</p>
+						</div>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- End #details -->	
+{% endblock %}{# end content #}

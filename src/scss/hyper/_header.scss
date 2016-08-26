@@ -1,0 +1,50 @@
+nav {
+	ul {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+		> {
+			li {
+				display: inline-block;
+				position: relative;
+				margin: 0;
+				vertical-align: top;
+				&:hover {
+					color: $primary-color;
+				}
+				a {
+					display: block;
+					padding: 5px;
+					&:hover {
+						color: $primary-color;
+					}
+				}
+				&:hover {
+					> ul {
+						visibility: visible;
+						opacity: 1;
+					}
+				}
+				// first level dropdown styles
+				> ul {
+					background: $bg-color;
+					position: absolute;
+					z-index: 10;
+					left: 0;
+					top: 100%;
+					visibility: hidden;
+					opacity: 0;
+					@include transition((visibility $med-speed ease-in-out, opacity $med-speed ease-in-out));
+					> li {
+						margin: 0;
+						display: block;
+						a {
+							display: block;
+							padding: 2px 5px;
+						}
+					}
+				}
+			}
+		}
+	}
+}

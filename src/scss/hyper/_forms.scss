@@ -1,0 +1,162 @@
+ // Forms
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="search"],
+input[type="phone"],
+textarea {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: none;
+  background: $input-bg;
+  border: $input-border;
+  box-shadow: none;
+  outline: none;
+  font-size: 1em;
+  padding: $input-padding;
+  width: 100%;
+  margin: 0;
+  line-height: $input-line-height;
+  @include border-radius ($input-border-radius);
+  @include transition ((background $med-speed ease-in-out, border $med-speed));
+  resize: none;
+  vertical-align: top;
+  text-indent: 0px;
+  height: $btn-medium-height;
+}
+
+textarea {
+  line-height: $base-line-height;
+  padding-top: 7px;
+  padding-bottom: 10px;
+  height: 120px;
+}
+
+input[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="email"]:focus,
+input[type="search"]:focus,
+textarea:focus {
+  background: $input-focus-bg;
+  border: $input-focus-border;
+  color: $input-focus-color;
+}
+
+// Radios and Checkboxes
+input[type="radio"],
+input[type="checkbox"] {
+  display: none;
+}
+
+label {
+  cursor: pointer;
+}
+
+input[type="radio"] + label,
+input[type="checkbox"] + label {
+  font-size: 1em;
+}
+
+input[type="radio"] + label span.radio,
+input[type="checkbox"] + label span.checkbox {
+  display: inline-block;
+  height: 16px;
+  width: 16px;
+  @include border-radius($input-border-radius);
+  margin-right: 7px;
+  margin-bottom: 5px;
+  vertical-align: middle;
+  @include transition ((border $med-speed ease-in-out, background $med-speed ease-in-out, color $med-speed ease-in-out));
+}
+
+input[type="radio"] { 
+  + label span.radio {
+    @include border-radius(50%);
+    background-color: transparent;
+    border: 2px solid lighten($text-color, 50%);
+    &:after {
+      @include transition(background $med-speed ease-in-out);
+      content: '';
+      display: block;
+      width: 8px;
+      height: 8px;
+      background-color: transparent;
+      @include border-radius(50%);
+      margin: 2px;
+    }
+  }
+  &:checked {
+    + label span.radio {
+      background-color: transparent;
+      border-color: $primary-color;
+      &:after {
+        background-color: $primary-color;
+      }
+    }
+  }
+}
+
+input[type="checkbox"] { 
+  + label span.checkbox {
+    background-color: transparent;
+    background-color: lighten($text-color, 50%);
+    border: 1px solid lighten($text-color, 50%);
+    &:after {
+      @include transition(background $med-speed ease-in-out);
+      content: '';
+      display: block;
+      width: 3px;
+      height: 8px;
+      border-bottom: 2px solid transparent;
+      border-right: 2px solid transparent;
+      background-color: transparent;
+      @include transform(rotate(45deg) scale(.75));
+      margin-top: 1px;
+      margin-left: 5px;
+      @include transition(all $med-speed ease-in-out);
+    }
+  }
+  &:checked {
+    + label span.checkbox {
+      background-color: $primary-color;
+      border-color: $primary-color;
+      &:after {
+        @include transform(rotate(45deg) scale(1));
+        border-color: $bg-color;
+      }
+    }
+  }
+}
+
+// Selects
+select {
+  -webkit-appearance: none;
+  background: $select-bg;
+  border: $select-border;
+  color: $select-color;
+  box-shadow: none;
+  outline: none;
+  font-size: 1em;
+  height: 40px;
+  width: 100%;
+  margin: 0px 0 1em 0;
+  line-height: 1.2em;
+  padding: $input-padding;
+  @include border-radius ($input-border-radius);
+  @include transition ((background $med-speed ease-in-out, border $med-speed));
+  vertical-align: top;
+  cursor: pointer;
+  background-repeat: no-repeat;
+  background-position: right center;
+  background-image: url(../images/arrow-thick-blk.png);
+  background-image: url(../images/arrow-thick-blk.svg);
+}
+
+select:hover,
+select:focus {
+  border: $input-focus-border;
+}

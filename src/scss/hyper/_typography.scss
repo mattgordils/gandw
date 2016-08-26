@@ -1,0 +1,231 @@
+@import '../fonts';
+
+html, form, textarea, input, input[type="text"], input[type="search"], input[type="password"], input[type="email"], button, select {
+  font-family: $main-font;
+  text-rendering: auto; 
+}
+
+.font-smooth {
+  @include font-smooth();
+}
+
+body{ 
+  -webkit-text-size-adjust:none; 
+  font-size: $base-font-size;
+  line-height: $base-line-height;
+  color: $text-color;
+  font-weight: normal;
+}
+
+/*HTML Standard Elements*/
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 { 
+  line-height: $base-line-height;;
+  margin-bottom: .5em;
+  display: block;
+}
+
+.block hr:first-of-type {
+  margin-top: 0;
+}
+
+h1, *.h1 { 
+  font-size: 2.25em;
+} 
+
+h2, *.h2 { 
+  font-size: 2em;
+}
+
+h3, *.h3 {
+  font-size: 1.75em;
+}
+
+h4, *.h4 {
+  font-size: 1.5em;
+}
+
+h5, *.h5 {
+  font-size: 1.25em;
+  margin-bottom: 1rem;
+}
+
+h6, *.h6 {
+  font-size: 1em;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+ul, ol, form { margin: 0 0 $base-line-height; }
+
+a { 
+  text-decoration: none; 
+  color: $link-color;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  -webkit-touch-callout: none;
+  @include transition ((color $med-speed ease-in-out, border $med-speed ease-in-out, background-color $med-speed ease-in-out, opacity $med-speed ease-in-out));
+  &:hover,
+  &:focus { 
+    color: $link-hover-color;
+  }
+}
+
+p {
+  hyphenate: auto;
+  hyphenate-before:2;
+  hyphenate-after:3;
+  hyphenate-lines: 3; orphans: 4;
+  font-size: 1em;
+  font-weight: normal;
+  margin-bottom: $base-line-height;
+  line-height: $base-line-height;
+  .lg &,
+  &.lg {
+    font-size: 1.25em;
+    line-height: $base-line-height - .1em;
+    margin-bottom: 1em;
+  }
+  .sm &,
+  &.sm {
+    font-size: .875em;
+  }
+  a { 
+    color: $text-color;
+    border-bottom: 1px solid $light-text-color;
+    &:hover,
+    &:focus {
+      color: $primary-color;
+      border-color: $primary-color;
+    }
+  }
+}
+
+blockquote {
+  font-size: 1.375em;
+  line-height: 1.4em;
+  margin: 1em 0 1em 0;
+  color: $text-color;
+  @include respond($md) {
+    padding-left: 2em;
+  }
+}
+
+p span.dropcap,
+p.dropcap:first-letter {
+  display: block;
+  font-style: normal;
+  font-size: 5.55em;
+  float: left;
+  margin: .08em .1em -0.3em -.05em;
+  line-height: 0.85em;
+  font-weight: 900;
+  text-transform: uppercase;
+  color: $text-color;
+}
+
+p span.dropcap.box {
+  background-color: $text-color;
+  display: block;
+  font-style: normal;
+  font-size: 3em;
+  float: left;
+  height: 1.3em;
+  margin: .13em .1em -0.25em 0em;
+  line-height: 1.05em;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: $bg-color;
+  padding: .195em .22em;
+  margin-right: .25em;
+}
+
+b,
+strong { 
+  font-weight: 700;
+}
+
+label { 
+  font-size: .875em;
+  line-height: $base-line-height;
+}
+
+label {
+  display: block;
+  margin-bottom: .25em;
+}
+
+hr {
+  border: none;
+  border-top: $hr-styles;
+  margin: 2em 0 2em;
+}
+
+pre { 
+  margin-bottom: $base-line-height;
+  padding: $base-line-height;
+  background-color: $text-color;
+  color: $bg-color;
+  font-family: Consolas, Andale Mono, monospace;
+  font-size: .9em;
+  overflow-x: hidden;
+  @include respond($md) {
+    font-size: 1em;
+  }
+}
+
+// Rich Text Areas
+.rich-text {
+
+  h1, h2, h3, h4, h5, h6,
+  .h1, .h2, .h3, .h4, .h5, .h6 {
+    margin-top: 3rem;
+  }
+
+  ul,
+  ol {
+    li {
+      margin-bottom: .75em;
+    }
+  }
+
+  ul {
+    list-style-position:outside; list-style:disc; padding-left: 16px;
+  }
+
+  ol {
+    counter-reset: li;
+    list-style: none;
+    & > li {
+    	padding-left: 1.5em;
+    	text-indent: -2.5em; // hanging numbers
+    	@include respond($md) {
+      	padding-left: 0;
+    	}
+    	&::before {
+        content: counter(li) ". ";
+        counter-increment: li;
+        display: inline-block;
+        width: 2.5em;
+        box-sizing: border-box;
+        padding-right: .5em;
+        text-align: right;
+        color: $light-text-color;
+      }
+    }
+  }
+}
+
+
+// Webkit
+::-webkit-input-placeholder { color: $placeholder-color; @include transition((color 0.3s ease-in-out));}
+:focus::-webkit-input-placeholder { color: transparent; }
+
+// Mozilla
+:-moz-placeholder { color: $placeholder-color; @include transition((color 0.3s ease-in-out));}
+:focus:-moz-placeholder { color: transparent; }
+::-moz-placeholder { color: $placeholder-color; @include transition((color 0.3s ease-in-out));}
+:focus::-moz-placeholder { color: transparent; }
+
+// IE
+:-ms-input-placeholder { color: $placeholder-color; @include transition((color 0.3s ease-in-out));}
+:focus:-ms-input-placeholder {color: transparent; }

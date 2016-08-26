@@ -1,0 +1,107 @@
+// Media Queries
+@mixin respond($query){
+  @media only screen and ($query) { @content; }
+}
+@mixin respond-min($breakpoint) {
+  @media only screen and (min-width: ($breakpoint) + px) { @content; }
+}
+@mixin respond-max($breakpoint) {
+  @media only screen and (min-width: ($breakpoint) + px) { @content; }
+}
+
+// Transform
+@mixin transform($transform){
+  -ms-transform: $transform; /* IE 9 */
+  -webkit-transform: $transform; /* Chrome, Safari, Opera */
+  transform: $transform;
+}
+
+// Transition 
+@mixin transition($transition: all .2s ease-in-out) {
+  -webkit-transition: $transition;
+  -moz-transition:    $transition;
+  -o-transition:      $transition;
+}
+
+// Greyscale/ Color
+@mixin greyscale() {
+  -webkit-filter: grayscale(100%);
+  -moz-filter: grayscale(100%);
+  -ms-filter: grayscale(100%);
+  -o-filter: grayscale(100%);
+  filter: grayscale(100%);
+  filter: gray; /* IE 6-9 */
+}
+
+@mixin fullcolor() {
+  -webkit-filter: grayscale(0%);
+  -moz-filter: grayscale(0%);
+  -ms-filter: grayscale(0%);
+  -o-filter: grayscale(0%);
+  filter: grayscale(0%);
+  filter: url(grayscale.svg); /* Firefox 4+ */
+  filter: none; /* IE 6-9 */;
+}
+
+// Animation
+@mixin keyframes($name) {
+  @-webkit-keyframes #{$name} {
+    @content; 
+  }
+  @-moz-keyframes #{$name} {
+    @content;
+  }
+  @-ms-keyframes #{$name} {
+    @content;
+  }
+  @keyframes #{$name} {
+    @content;
+  } 
+}
+
+@mixin animation($animate...) {
+  $max: length($animate);
+  $animations: '';
+
+  @for $i from 1 through $max {
+      $animations: #{$animations + nth($animate, $i)};
+
+      @if $i < $max {
+          $animations: #{$animations + ", "};
+      }
+  }
+  -webkit-animation: $animations;
+  -moz-animation:    $animations;
+  -o-animation:      $animations;
+  animation:         $animations;
+}
+
+// Placeholders
+@mixin placeholder {
+    &::-webkit-input-placeholder {
+        @content;
+    }
+    &:-moz-placeholder { /* Firefox 18- */
+        @content;
+    }
+    &::-moz-placeholder {  /* Firefox 19+ */
+        @content;
+    }
+    &:-ms-input-placeholder {
+        @content;
+    }
+}
+@mixin placeholder-focus {
+    &:focus::-webkit-input-placeholder {
+        @content;
+    }
+    &:focus:-moz-placeholder { /* Firefox 18- */
+        @content;
+    }
+    &:focus::-moz-placeholder {  /* Firefox 19+ */
+        @content;
+    }
+    &:focus:-ms-input-placeholder {
+        @content;
+    }
+}

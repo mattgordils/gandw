@@ -1,0 +1,190 @@
+// Buttons
+
+.btn,
+input[type="submit"],
+button {
+  -webkit-appearance: none;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  -webkit-touch-callout: none;
+  border: none;
+  outline: none;
+  display: inline-block;
+  vertical-align: top;
+  text-align: center;
+  background-image: none;
+  -webkit-appearance: caret;
+  -moz-appearance: caret; /* mobile firefox too! */
+  -webkit-appearance: none;
+  background-color: $btn-bg;
+  color: $btn-color;
+  height: $btn-height;
+  max-height: $btn-height;
+  padding: $btn-padding;
+  margin: 0px;
+  font-family: $main-font;
+  font-size: 1em;
+  font-weight: 500;
+  cursor: pointer;
+  line-height: $btn-height;
+  width: 100%;
+  max-width: 400px;
+  border: $btn-border;
+  position: relative;
+  overflow: hidden;
+  @include border-radius ($btn-border-radius);
+  @include transition ((border $med-speed ease-in-out, background $med-speed ease-in-out, color $med-speed ease-in-out, background $med-speed ease-in-out, padding $med-speed ease-in-out));
+  .icon {
+    svg {
+      * {
+        fill: $btn-color;
+      }
+    }
+  }
+
+  &.medium {
+    font-size: .95em;
+    height: $btn-medium-height;
+    padding: $btn-medium-padding;
+    line-height: $btn-medium-height;
+  }
+
+  &.tiny {
+    font-size: .857em;
+    height: $btn-tiny-height;
+    padding: $btn-tiny-padding;
+    line-height: $btn-tiny-height;
+  }
+
+  &:hover,
+  &:active {
+    color: $btn-hover-color;
+    background-color: $btn-hover-bg;
+    border: $btn-hover-border;
+    svg {
+      * {
+        fill: $btn-hover-color;
+      }
+    }
+  }
+
+  &:before {
+    box-sizing: border-box;
+    position: absolute;
+    content: '';
+    width: 20px;
+    height: 20px;
+    margin-left: -10px;
+    margin-top: -10px;
+    line-height: 20px;
+    top: 50%;
+    left: 50%;
+    border: 2px solid $bg-color;
+    border-radius: 50%;
+    opacity: 0;
+    visibility: hidden;
+    @include transition((all $med-speed ease-in-out));
+  }
+  &:after {
+    box-sizing: border-box;
+    position: absolute;
+    content: '';
+    width: 20px;
+    height: 20px;
+    margin-left: -10px;
+    margin-top: -10px;
+    line-height: 20px;
+    top: 50%;
+    left: 50%;
+    opacity: 0;
+    visibility: hidden;
+    @include transition((all $med-speed ease-in-out));
+  }
+
+  &.loading {
+    color: transparent;
+    background-color: lighten($btn-bg, 50%);
+    border: $btn-border;
+    border-color: lighten($btn-bg, 50%);
+    cursor: default;
+    &:before {
+      border: 2px solid rgba($bg-color, .5);
+      border-top-color: $bg-color;
+      border-right-color: $bg-color;
+      @include animation(rotate $spinner-speed linear infinite);
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+
+  &.success {
+    color: transparent;
+    background-color: $btn-bg;
+    border: $btn-border;
+    cursor: default;
+    background-color: $btn-hover-bg;
+    &:before {
+      background-color: $bg-color;
+      opacity: 1;
+      visibility: visible;
+    }
+    &:after {
+      opacity: 1;
+      visibility: visible;
+      content: '';
+      border: 2px solid $btn-hover-bg;
+      border-left: none;
+      border-top: none;
+      @include transform(rotate(45deg));
+      line-height: 21px;
+      font-size: 16px;
+      width: 6px;
+      height: 10px;
+      margin-left: -3px;
+      margin-top: -6px;
+    }
+  }
+
+  &.error {
+    color: transparent;
+    background-color: $btn-bg;
+    border: $btn-border;
+    cursor: default;
+    &:before {
+      color: $btn-bg;
+      content: '';
+      background-color: $bg-color;
+      opacity: 1;
+      visibility: visible;
+    }
+    &:after {
+      opacity: 1;
+      visibility: visible;
+      color: $btn-bg;
+      content: '×'; 
+      line-height: 21px;
+      font-size: 16px;
+    }
+  }
+
+  &.secondary {
+    background-color: $secondary-btn-bg;
+    color: $secondary-btn-color;
+    border: $secondary-btn-border;
+    svg {
+      * {
+        fill: $secondary-btn-color;
+      }
+    }
+    &:hover,
+    &:active {
+      color: $secondary-btn-hover-color;
+      background-color: $secondary-btn-hover-bg;
+      border: $secondary-btn-hover-border;
+      svg {
+        * {
+          fill: $secondary-btn-hover-color;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,31 @@
+// <div id="pageLoader">
+// 	<div class="loader">
+// 		<div class="spinner">
+// 			<span></span>
+// 		</div>
+// 	</div>
+// </div>
+
+#pageLoader {
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background-color: $bg-color;
+	text-align: center;
+	z-index: 9;
+	@include transition(all 1.5s 1s ease-in-out);
+	visibility: visible;
+	opacity: 1;
+	// hide for testing
+	visibility: hidden;
+	opacity: 0;
+	.loaded & {
+		visibility: hidden;
+		opacity: 0;
+	}
+	.loader {
+		display: inline-block;
+	}
+}

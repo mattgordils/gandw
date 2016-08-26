@@ -1,0 +1,190 @@
+/*==============================================================================
+  Grid Settings
+==============================================================================*/
+// $columns: 12;
+// $gutter: 3%;
+
+$onecol: 100% / $columns;
+$inlinecol: $onecol;
+
+@mixin columns($num, $parent: $columns) {
+  width: (100% / $parent * $num);
+}
+
+/*==============================================================================
+  Columns, generic
+==============================================================================*/
+@mixin col-container() {
+  display: block;
+  min-width: 100%;
+  @include clearfix;
+  margin: 0 (-$gutter/2);
+}
+
+@mixin create-cols() {
+  .col,
+  [class^="col-"] {
+    min-height: 1px;
+    max-width: 100%;
+    letter-spacing: 0;
+    display: inline;
+    float: left;
+    position: relative;
+    margin: 0;
+    padding: 0 ($gutter/2);
+    
+    &.right {
+      @include respond($md) {
+        float: right;
+      }
+    }
+    &.left {
+      @include respond($md) {
+        float: left;
+      }
+    }
+  }
+  @include col-sizes();
+}
+
+@mixin col-sizes() {
+  @for $i from 1 through $columns {    
+    .col-#{$i} {
+      @include columns($i);
+    }
+
+    // Nested Columns
+    // columns(number, ofcolums);
+    @for $n from 1 through $i {
+      .col-#{$n}-#{$i} {
+        @include columns($n, $i);
+        // padding: 0 (((1 + $n/$i) * $gutter)/2) ((1 + $n/$i) * $gutter);
+      }
+    }
+  } // end for
+}
+
+@mixin create-inline-cols() {
+  .col,
+  [class^="col-"] {
+    vertical-align: top;
+    display: inline-block;
+    float: none;
+    margin-left: 0;
+    letter-spacing: 0;
+    min-height: 1px;
+    max-width: 100%;
+    position: relative;
+    margin: 0;
+    padding: 0 ($gutter/2);
+  }
+  @include col-sizes();
+}
+
+@mixin inline-col-container() {
+  display: block;
+  min-width: 100%;
+  text-align: left;
+  letter-spacing: -.31em;
+  margin: 0 (-$gutter/2) 0;
+  @include create-cols();
+  &.center {
+    text-align: center;
+  }
+  &.right {
+    text-align: right;
+  }
+  &.middle .col,
+  &.middle [class^="col-"] {
+    vertical-align: middle;
+  }
+  &.bottom .col,
+  &.bottom [class^="col-"] {
+    vertical-align: bottom;
+  }
+}
+
+// Nested columns.
+// $children is the number of columns the element should span inside its parent.
+// $parent is the number of columns the closest parent has. 
+// Example: .nestedcolumns(3, 6); makes two columns (spanning three columns each) 
+// inside six columns.
+@mixin nestedcolumns($children, $parent) {
+
+    $parentsize: ($onecol * $parent) + ($gutter * ($parent));
+
+    // $childsize: ($onecol * $children) + ($gutter * ($children - 1));
+    $childsize: ($onecol * $children) + ($gutter * ($children));
+
+    // margin-left: ($gutter / $parentsize) * 100%;
+
+    width: ($childsize / $parentsize) * 100%;
+
+}
+
+/*==============================================================================
+Containers columns 
+==============================================================================*/
+.row {
+  padding: 0;
+  list-style: none;
+
+  &:not(.no-break):not(.break-lg):not(.break-xlg) {
+    @include respond($md) {
+      @include col-container();
+      @include create-cols();
+    }
+  }
+
+  &.no-break {
+    @include col-container();
+    @include create-cols();
+  }
+  
+  &.break-lg {
+    @include respond($lg) {
+      @include col-container();
+      @include create-cols();
+    }
+  }
+
+  &.break-xlg {
+    @include respond($xlg) {
+      @include col-container();
+      @include create-cols();
+    }
+  }
+  
+}
+
+.inline-grid {
+  padding: 0;
+  list-style: none;
+
+  &:not(.no-break):not(.break-lg):not(.break-xlg) {
+    @include respond($md) {
+      @include inline-col-container();
+      @include create-inline-cols();
+    }
+  }
+
+  &.no-break {
+    @include inline-col-container();
+    @include create-inline-cols();
+  }
+  
+  &.break-lg {
+    @include respond($lg) {
+      @include inline-col-container();
+      @include create-inline-cols();
+    }
+  }
+
+  &.break-xlg {
+    @include respond($xlg) {
+      @include inline-col-container();
+      @include create-inline-cols();
+    }
+  }
+  
+}

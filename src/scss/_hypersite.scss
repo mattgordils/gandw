@@ -1,0 +1,100 @@
+.styles {
+	header {
+		.container {
+			padding-top: 40px;
+			nav {
+				display: inline-block;
+				vertical-align: middle;
+			}
+			.logo {
+				width: 36px;
+				display: inline-block;
+				vertical-align: middle;
+				margin-right: 20px;
+				svg * {
+					fill: $primary-color;
+				}
+				@include respond($lg) {
+					position: fixed;
+					top: 40px;
+					left: 40px;
+				}
+			}
+		}
+	}
+
+	.container {
+		@include respond($lg) {
+			padding-left: 60px;
+		}
+	}
+
+	.section {
+		padding: 5% 0;
+	}
+
+	.hyper-splash-area {
+		height: 100vh;
+		background: $text-color;
+		color: $bg-color;
+	}
+
+	.container.narrow {
+		max-width: 700px;
+	}
+
+	#content,
+	header,
+	footer {
+		position: relative;
+		z-index: 5;
+	}
+
+	.hyper-grid {
+		position: relative;
+		z-index: 1;
+		position: fixed;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		.row {
+			height: 100%;
+			[class^="col-"] {
+				padding-bottom: 0;
+				height: 100%;
+				&:after {
+					box-sizing: border-box;
+					content: '';
+					display: block;
+					width: 100%;
+					height: 100vh;
+					border-left: 1px solid #4affff;
+					border-right: 1px solid #4affff;
+				}
+			}
+		}
+	}
+
+	footer {
+		li {
+			display: inline-block;
+		}
+		.tooltip {
+			width: 40px;
+			height: 40px;
+			display: inline-block;
+			[class^="icon-"] {
+				display: block;
+				position: relative;
+				font-size: 20px;
+				text-align: center;
+				line-height: 47px;
+				background: #ddd;
+				border-radius: 50%;
+				width: 40px;
+				height: 40px;
+			}
+		}
+	}
+}
